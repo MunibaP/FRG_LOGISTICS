@@ -40,6 +40,11 @@
   }
 }
 
+.heading-green {
+  color: #1e903d; /* or any solid green you'd like */
+}
+
+
 /* Slogan container */
 .slogan {
   font-weight: bold;

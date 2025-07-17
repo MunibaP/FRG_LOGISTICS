@@ -49,7 +49,7 @@ const About = () => {
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="fw-bold text-success">Who We Are</h2>
+                            <h2 className="fw-bold heading-green">Who We Are</h2>
 
                             <p className="mb-3">
                                 Our experienced drivers, state-of-the-art electric vehicle fleet, and advanced
@@ -132,7 +132,16 @@ const About = () => {
 
                 {/*Our Values Section */}
                 <section className="mb-5">
-                    <h2 className="fw-bold text-center mb-4">Our Core Values</h2>
+                    <motion.h2
+                        className="fw-bold text-center mb-4 heading-green"
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true, amount: 0.3  }}
+                    >
+                        Our Core Values
+                    </motion.h2>
+
                     <Row className="text-center g-4">
                         <Col md={4}>
                             <motion.div
@@ -187,7 +196,16 @@ const About = () => {
 
                 {/*Mission Statement */}
                 <section>
-                    <h2 className="fw-bold text-center mb-3">Our Mission</h2>
+                    <motion.h2
+                        className="fw-bold text-center mb-3 heading-green"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.6, ease: "easeOut" }}
+                        viewport={{ once: true }}
+                    >
+                         Our Mission
+                    </motion.h2>
+
                     <p className="text-center">
                         To deliver exceptional, eco-friendly logistics services that help businesses thrive
                         while building a more sustainable future for our communities.
