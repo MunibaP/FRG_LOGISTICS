@@ -64,7 +64,8 @@
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   color: #198754;
-  font-weight: 700; /* <-- makes it bold */
+  font-weight: 700;
+  text-align: center;
 }
 
 .why-bullets {
@@ -100,4 +101,28 @@
   font-size: 1rem;
   line-height: 1;
 }
+
+.process-card {
+  background: #f8f9fa;
+  overflow: hidden;
+  min-height: 240px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+}
+
+.process-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.process-number {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 4.5rem;
+  font-weight: 800;
+  color: rgba(0, 128, 0, 0.1); /* light green tint */
+  z-index: 0;
+  pointer-events: none;
+}
+
 

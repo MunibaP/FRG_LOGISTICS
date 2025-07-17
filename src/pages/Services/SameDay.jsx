@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col, Button, Accordion } from "react-bootstrap";
 import { motion } from "framer-motion";
 import SameDayImg from "../../assets/SameDay.jpg";
 import "../../styles/SameDay.css";
@@ -27,14 +27,13 @@ const processSteps = [
   },
 ];
 
-// Animation variants for bullets
 const bulletVariants = {
   hidden: { opacity: 0, x: -20 },
   visible: (i) => ({
     opacity: 1,
     x: 0,
     transition: {
-      delay: i * 0.3, // stagger each bullet by 0.3s
+      delay: i * 0.3,
       duration: 0.5,
       ease: "easeOut",
     },
@@ -64,7 +63,7 @@ const SameDay = () => {
         </motion.h1>
 
         {/* Intro Paragraph */}
-        <p className="lead paragraph-box text-center">
+        <p className="lead paragraph-box text-center mb-5">
           <span className="highlight">Fast and reliable same-day delivery</span> service across the GTA — ensuring your packages arrive right when they are needed.
         </p>
 
@@ -74,7 +73,7 @@ const SameDay = () => {
             <motion.img
               src={SameDayImg}
               alt="Same Day Delivery"
-              className="img-fluid same-day-img"
+              className="img-fluid same-day-img mt-3"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
@@ -107,31 +106,93 @@ const SameDay = () => {
         {/* Our Process Section */}
         <Row>
           <Col>
-            <h3>Our Process</h3>
+            <motion.h3
+              className="why-heading text-center text-success fw-bold mb-5"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              Our Process
+            </motion.h3>
 
-            {/* Animated process steps */}
-            <Row className="mb-4">
+            <Row className="g-4">
               {processSteps.map((step, index) => (
-                <Col key={index} md={3} className="text-center mb-4">
+                <Col key={index} md={6} lg={3}>
                   <motion.div
-                    whileHover={{ scale: 1.1, rotate: 10 }}
-                    transition={{ type: "spring", stiffness: 300 }}
+                    className="process-card p-4 rounded text-center position-relative"
+                    whileHover={{ scale: 1.05 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                    viewport={{ once: true }}
                   >
-                    <i className={`${step.icon} fa-3x text-success mb-3`}></i>
-                    <h5>{step.title}</h5>
-                    <p>{step.description}</p>
+                    {/* Large Number Background */}
+                    <span className="process-number">{index + 1}</span>
+
+                    {/* Icon */}
+                    <i className={`${step.icon} fa-2x text-success mb-3 z-1 position-relative`}></i>
+
+                    {/* Heading */}
+                    <h5 className="fw-bold position-relative z-1">{step.title}</h5>
+
+                    {/* Description */}
+                    <p className="position-relative z-1">{step.description}</p>
                   </motion.div>
                 </Col>
               ))}
             </Row>
 
-            <p className="enhanced-paragraph">
+            {/* Animated Paragraphs */}
+            {/* <motion.p
+              className="enhanced-paragraph"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               Once your order is placed, our <strong>drivers are dispatched immediately</strong>. Packages are carefully handled and <em>tracked through every step</em>, ensuring prompt and safe delivery to your customer or business partner.
-            </p>
+            </motion.p>
 
-            <p className="enhanced-paragraph">
+            <motion.p
+              className="enhanced-paragraph"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
               We cover the entire Greater Toronto Area with <strong>fast response times</strong> and <strong>optimized routes</strong> powered by advanced technology.
-            </p>
+            </motion.p> */}
+
+            {/* Accordion / Toggle Panel */}
+            {/* <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="mt-4"
+            >
+              <Accordion defaultActiveKey="0" flush>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>How fast is your delivery service?</Accordion.Header>
+                  <Accordion.Body>
+                    We provide guaranteed same-day delivery within hours, depending on location and time of order placement.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>What areas do you cover?</Accordion.Header>
+                  <Accordion.Body>
+                    We service the entire Greater Toronto Area with optimized routing for speed and efficiency.
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>Can I track my package in real time?</Accordion.Header>
+                  <Accordion.Body>
+                    Yes! You get live tracking updates via our GPS-enabled system from pickup to drop-off.
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </motion.div> */}
           </Col>
         </Row>
 
