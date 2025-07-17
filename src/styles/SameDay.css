@@ -1,5 +1,6 @@
 .same-day-section {
   background-color: #f9f9f9;
+  /* background-color: #f0f7f3; */
   min-height: 100vh;
 }
 
@@ -25,6 +26,16 @@
   font-weight: 600;
 }
 
+.same-day-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 2.5rem auto 0 auto;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
 .enhanced-paragraph {
   max-width: 700px;
   margin: 1rem auto;
@@ -43,3 +54,50 @@
 .why-heading {
     margin-top: 3rem;
 }
+
+.why-choose-wrapper {
+  text-align: center;
+  margin-top: -4rem;
+}
+
+.why-heading {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #198754;
+  font-weight: 700; /* <-- makes it bold */
+}
+
+.why-bullets {
+  padding-left: 0;
+  margin: 0 auto;
+  max-width: 400px;
+  text-align: left;
+  font-size: 1.1rem; /* smaller font size */
+  color: #444;
+  list-style: none; /* remove default bullets */
+  text-align: center;
+}
+
+.why-bullets li {
+  position: relative;
+  padding-left: 25px; /* space for the custom bullet */
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  font-size: 1.2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+/* Custom bullet: the green checkmark */
+.why-bullets li::before {
+  /* content: "✅"; */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1rem;
+  line-height: 1;
+}
+

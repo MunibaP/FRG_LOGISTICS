@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
+import SameDayImg from "../../assets/SameDay.jpg";
 import "../../styles/SameDay.css";
 
 const processSteps = [
@@ -26,7 +27,29 @@ const processSteps = [
   },
 ];
 
+// Animation variants for bullets
+const bulletVariants = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      delay: i * 0.3, // stagger each bullet by 0.3s
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  }),
+};
+
 const SameDay = () => {
+  const bullets = [
+    "Real-time delivery tracking with live updates",
+    "Guaranteed delivery within hours",
+    "Ideal for urgent, time-sensitive shipments",
+    "Experienced and professional EV couriers",
+    "Environmentally-friendly electric fleet",
+  ];
+
   return (
     <section className="same-day-section py-5">
       <Container>
@@ -41,7 +64,7 @@ const SameDay = () => {
         </motion.h1>
 
         {/* Intro Paragraph */}
-        <p className="lead paragraph-box">
+        <p className="lead paragraph-box text-center">
           <span className="highlight">Fast and reliable same-day delivery</span> service across the GTA — ensuring your packages arrive right when they are needed.
         </p>
 
@@ -49,58 +72,67 @@ const SameDay = () => {
         <Row className="align-items-center mb-5">
           <Col md={6}>
             <motion.img
-              src="/images/same-day-delivery.jpg" // Replace with your actual image path
+              src={SameDayImg}
               alt="Same Day Delivery"
-              className="img-fluid rounded shadow"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
+              className="img-fluid same-day-img"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
             />
           </Col>
 
           <Col md={6}>
-            <h3 className="why-heading">Why Choose Our Same-Day Delivery?</h3>
-            <ul className="list-unstyled fs-5">
-              <li>✅ Real-time delivery tracking with live updates</li>
-              <li>✅ Guaranteed delivery within hours</li>
-              <li>✅ Ideal for urgent, time-sensitive shipments</li>
-              <li>✅ Experienced and professional EV couriers</li>
-              <li>✅ Environmentally-friendly electric fleet</li>
-            </ul>
+            <div className="why-choose-wrapper text-center">
+              <h3 className="why-heading fw-bold">Why Choose Our Same-Day Delivery?</h3>
+              <ul className="why-bullets list-unstyled mx-auto text-start" style={{ maxWidth: "400px" }}>
+                {bullets.map((text, index) => (
+                  <motion.li
+                    key={index}
+                    custom={index}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.5 }}
+                    variants={bulletVariants}
+                    style={{ marginBottom: "0.75rem" }}
+                  >
+                    ✅ {text}
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
           </Col>
         </Row>
 
         {/* Our Process Section */}
         <Row>
-            <Col>
-                <h3>Our Process</h3>
+          <Col>
+            <h3>Our Process</h3>
 
-                {/* Add the animated icons process here */}
-                <Row className="mb-4">
-                    {processSteps.map((step, index) => (
-                        <Col key={index} md={3} className="text-center mb-4">
-                            <motion.div
-                                whileHover={{ scale: 1.1, rotate: 10 }}
-                                transition={{ type: "spring", stiffness: 300 }}
-                            >
-                                <i className={`${step.icon} fa-3x text-success mb-3`}></i>
-                                <h5>{step.title}</h5>
-                                <p>{step.description}</p>
-                            </motion.div>
-                        </Col>
-                    ))}
-                </Row>
+            {/* Animated process steps */}
+            <Row className="mb-4">
+              {processSteps.map((step, index) => (
+                <Col key={index} md={3} className="text-center mb-4">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <i className={`${step.icon} fa-3x text-success mb-3`}></i>
+                    <h5>{step.title}</h5>
+                    <p>{step.description}</p>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row>
 
-                {/* Optional: keep your existing descriptive paragraphs if you want */}
-                
-                <p className="enhanced-paragraph">
-                    Once your order is placed, our <strong>drivers are dispatched immediately</strong>. Packages are carefully handled and <em>tracked through every step</em>, ensuring prompt and safe delivery to your customer or business partner.
-                </p>
+            <p className="enhanced-paragraph">
+              Once your order is placed, our <strong>drivers are dispatched immediately</strong>. Packages are carefully handled and <em>tracked through every step</em>, ensuring prompt and safe delivery to your customer or business partner.
+            </p>
 
-                <p className="enhanced-paragraph">
-                    We cover the entire Greater Toronto Area with <strong>fast response times</strong> and <strong>optimized routes</strong> powered by advanced technology.
-                </p>
-            </Col>
+            <p className="enhanced-paragraph">
+              We cover the entire Greater Toronto Area with <strong>fast response times</strong> and <strong>optimized routes</strong> powered by advanced technology.
+            </p>
+          </Col>
         </Row>
 
         {/* Call to Action */}
