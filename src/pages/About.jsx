@@ -2,6 +2,8 @@ import React from "react"
 import { Container, Row, Col, Card, Accordion } from "react-bootstrap";
 import { motion } from "framer-motion";
 import aboutImg from "../assets/team.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faQuoteLeft, faQuoteRight } from "@fortawesome/free-solid-svg-icons";
 import "../styles/About.css";
 
 const About = () => {
@@ -196,20 +198,20 @@ const About = () => {
 
                 {/*Mission Statement */}
                 <section>
-                    <motion.h2
-                        className="fw-bold text-center mb-3 heading-green"
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, ease: "easeOut" }}
+                    <motion.section
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
+                        className="mission-container"
                     >
-                         Our Mission
-                    </motion.h2>
-
-                    <p className="text-center">
-                        To deliver exceptional, eco-friendly logistics services that help businesses thrive
-                        while building a more sustainable future for our communities.
-                    </p>
+                        <h2 className="fw-bold text-center mb-3 heading-green">Our Mission</h2>
+                        <p className="mission-quote text-center mx-auto">
+                            <FontAwesomeIcon icon={faQuoteLeft} className="quote-icon-left" />
+                            To deliver exceptional, eco-friendly logistics services that help businesses thrive while building a more sustainable future for our communities.
+                            <FontAwesomeIcon icon={faQuoteRight} className="quote-icon-right" />
+                        </p>
+                    </motion.section>
                 </section>
             </Container>
         </section>

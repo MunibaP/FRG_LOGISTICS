@@ -115,4 +115,52 @@
   }
 }
 
+.mission-quote {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: #2a7f62;
+  border-left: 4px solid #28a745;
+  padding-left: 1rem;
+  margin: 1rem auto;
+  max-width: 700px;
+}
+
+.mission-container {
+  width: 100%;
+  padding: 0 1rem; /* small horizontal padding */
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  /* max-width: 700px;
+  margin: 2rem auto;
+  padding: 1rem 2rem;
+  background-color: #e6f4ea;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); */
+}
+
+.mission-quote {
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #444444;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  /* padding: 1rem 2rem; */
+}
+
+.quote-icon-left,
+.quote-icon-right {
+  color: #28a745;
+  font-size: 2rem;
+  vertical-align: middle;
+}
+
+.quote-icon-left {
+  margin-right: 0.5rem;
+}
+
+.quote-icon-right {
+  margin-left: 0.5rem;
+}
+
 
