@@ -1,0 +1,113 @@
+
+.about-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.about-section h1 {
+  font-size: 2.25rem;
+}
+
+.about-section p,
+.about-section li {
+  font-size: 1.125rem;
+  line-height: 1.7;
+}
+
+.about-section ul {
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.about-section ul li {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.3s);
+  list-style-position: inside;
+}
+
+/* Animation keyframe */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slogan container */
+.slogan {
+  font-weight: bold;
+  color: #198754; /* A unique green color */
+  display: inline-flex;
+  gap: 0.5rem;
+}
+
+/* Each word animated */
+.slogan-word {
+  display: inline-block;
+  animation: jump 1s ease infinite;
+  animation-delay: calc(var(--i) * 0.3s);
+}
+
+/* Jump animation */
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.heading-gradient {
+  background: linear-gradient(90deg, #3ac47d, #238f7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight {
+  position: relative; 
+  display: inline-block;
+  color: #28a745; /* brand green */
+  font-weight: 700;
+  white-space: nowrap;
+  background: linear-gradient(90deg, #3ac47d, #238f7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.highlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px; /* adjust to move underline closer/farther */
+  width: 100%;
+  height: 4px;
+  background-color: #28a745;
+  border-radius: 2px;
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.underline {
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .lead {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+

@@ -1,0 +1,15 @@
+.hero-section {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-section .overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay for text readability */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
