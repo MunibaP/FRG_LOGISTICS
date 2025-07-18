@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Button } from "react-bootstrap";
 import { motion } from "framer-motion";
 import "../../styles/HeroSection.css";
-import heroImg from "../../assets/EVFleet.jpg"; // replace with your image
+import heroImg from "../../assets/EVFleet.jpg";
 
 const Home = () => {
   return (
@@ -44,7 +44,7 @@ const Home = () => {
             transition={{ delay: 0.6, duration: 0.6 }}
             className="d-flex gap-3 mt-3 flex-wrap justify-content-center"
           >
-            <Button variant="success" size="lg" href="/get-quote">Get a Free Quote</Button>
+            <Button variant="success" size="lg" href="/quote">Get a Free Quote</Button>
             <Button variant="outline-light" size="lg" href="/services">Learn More</Button>
           </motion.div>
         </Container>

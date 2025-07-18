@@ -1,0 +1,64 @@
+.our-fleet-page .fleet-hero {
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 60vh;
+  background: url('../../assets/FleetBG.jpg') center center/cover no-repeat;
+  z-index: 1;
+}
+
+.our-fleet-page .fleet-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25); /* Darker but subtle overlay for contrast */
+  z-index: 0;
+}
+
+.our-fleet-page .fleet-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  padding: 1rem;
+}
+
+.our-fleet-page .fleet-hero h1 {
+   font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow:
+   0 0 8px rgba(72, 255, 128, 0.9),
+   0 0 14px rgba(0, 255, 128, 0.4);
+}
+
+.our-fleet-page .fleet-hero p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+  color: #e6ffe6;
+  text-shadow:
+    0 0 5px rgba(0, 255, 128, 0.4),
+    0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.our-fleet-page .fleet-hero .btn {
+  background-color: #17ab66;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(25, 135, 84, 0.6);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.our-fleet-page .fleet-hero .btn:hover {
+  background-color: #157347;
+  box-shadow: 0 0 12px rgba(25, 255, 135, 0.8), 0 0 20px rgba(0, 255, 128, 0.5);
+  transform: translateY(-2px);
+}

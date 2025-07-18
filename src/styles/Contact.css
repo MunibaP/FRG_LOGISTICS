@@ -1,0 +1,82 @@
+/* Contact.css */
+
+/* Page background & spacing */
+.contact-page {
+  background-color: #f9fdf9; /* Very light green/gray for subtle contrast */
+  min-height: 85vh;
+}
+
+/* Contact info section */
+.contact-info {
+  background: #ffffff;
+  border-left: 6px solid #48c774; /* Green accent */
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.contact-info:hover {
+  box-shadow: 0 0 15px rgba(72, 199, 116, 0.6);
+}
+
+/* Individual contact info items align icon and text */
+.contact-info-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-info-item svg {
+  font-size: 1.3rem;
+  min-width: 28px;
+}
+
+/* Contact form section */
+.contact-form {
+  background: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+  box-shadow: 0 0 15px rgba(72, 199, 116, 0.4);
+}
+
+/* Form labels */
+.contact-form label {
+  font-weight: 600;
+  color: #2a6f32; /* Darker green */
+}
+
+/* Form control focus */
+.contact-form .form-control:focus {
+  border-color: #48c774 !important;
+  box-shadow: 0 0 8px rgba(72, 199, 116, 0.5);
+}
+
+/* Submit button */
+.contact-form .btn-success {
+  background-color: #48c774;
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.6rem 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn-success:hover,
+.contact-form .btn-success:focus {
+  background-color: #3ca661;
+  box-shadow: 0 0 12px rgba(60, 166, 97, 0.7);
+  outline: none;
+  border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .contact-info,
+  .contact-form {
+    border-left: none !important;
+    border-top: 6px solid #48c774;
+  }
+
+  .contact-info {
+    margin-bottom: 2rem;
+  }
+}

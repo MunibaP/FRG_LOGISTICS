@@ -110,7 +110,7 @@ const Header = () => {
 
               <NavDropdown.Item
                 as={NavLink}
-                to="/services/scheduled"
+                to="/services/Scheduled"
                 className={({ isActive }) =>
                   isActive ? "dropdown-item active-link" : "dropdown-item"
                 }
@@ -120,7 +120,7 @@ const Header = () => {
 
               <NavDropdown.Item 
                 as={NavLink} 
-                to="/services/ecommerce"
+                to="/services/Ecommerce"
                 className={({ isActive }) =>
                   isActive ? "dropdown-item active-link" : "dropdown-item"
                 }
@@ -130,7 +130,7 @@ const Header = () => {
 
               <NavDropdown.Item 
                 as={NavLink} 
-                to="/services/retail"
+                to="/services/Retail"
                 className={({ isActive }) =>
                   isActive ? "dropdown-item active-link" : "dropdown-item"
                 }
@@ -141,7 +141,7 @@ const Header = () => {
 
               <NavDropdown.Item 
                 as={NavLink} 
-                to="/services/medical"
+                to="/services/medical-delivery"
                 className={({ isActive }) =>
                   isActive ? "dropdown-item active-link" : "dropdown-item"
                 }
@@ -151,7 +151,7 @@ const Header = () => {
 
               <NavDropdown.Item 
                 as={NavLink} 
-                to="/services/warehousing"
+                to="/services/Warehousing"
                 className={({ isActive }) =>
                   isActive ? "dropdown-item active-link" : "dropdown-item"
                 }
@@ -173,7 +173,7 @@ const Header = () => {
 
             <Nav.Link 
               as={NavLink} 
-              to="/medical"
+              to="/MedicalDelivery"
               className={({ isActive }) =>
                 isActive ? "dropdown-item active-link" : "dropdown-item"
               }
@@ -183,7 +183,7 @@ const Header = () => {
 
             <Nav.Link 
               as={NavLink} 
-              to="/get-quote"
+              to="/quote"
               className={({ isActive }) =>
                 isActive ? "dropdown-item active-link" : "dropdown-item"
               }

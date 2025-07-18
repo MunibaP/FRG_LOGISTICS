@@ -1,0 +1,30 @@
+.quote-hero {
+  background: url('../assets/GetAQuote.jpg') center center/cover no-repeat;
+  height: 60vh;
+  position: relative;
+}
+
+.quote-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 60, 0, 0.6); /* dark green overlay */
+  z-index: 1;
+}
+
+.quote-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.quote-form {
+  background-color: #fff;
+  border-radius: 1rem;
+}
+
+.trust-features h5 {
+  font-weight: bold;
+}
