@@ -7,7 +7,7 @@ import Services from '../pages/Services/Services';
 import SameDay from "../pages/Services/SameDay";
 import Scheduled from "../pages/Services/Scheduled";
 import Ecommerce from "../pages/Services/Ecommerce";
-// import Retail from "../pages/Services/Retail";
+import Retail from "../pages/Services/Retail";
 // import MedicalDelivery from "../pages/Services/MedicalDelivery";
 // import Warehousing from "../pages/Services/Warehousing";
 
@@ -25,8 +25,8 @@ const AppRoutes = ()  => {
       <Route path="/services/same-day" element={<SameDay />} />
       <Route path="/services/scheduled" element={<Scheduled />} />
       <Route path="/services/ecommerce" element={<Ecommerce />} />
-      {/* <Route path="retail" element={<Retail />} />
-      <Route path="medical-delivery" element={<MedicalDelivery />} />
+      <Route path="/services/retail" element={<Retail />} />
+      {/* <Route path="medical-delivery" element={<MedicalDelivery />} />
       <Route path="warehousing" element={<Warehousing />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/quote" element={<GetQuote />} />
