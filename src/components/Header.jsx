@@ -75,7 +75,7 @@ const Header = () => {
             </Nav.Link>
 
             <Nav.Link as={NavLink} to="/about"
-              ClassName={({isActive}) =>
+              className={({isActive}) =>
                 isActive ? "nav-link active-link" : "nav-link"
               }
             >

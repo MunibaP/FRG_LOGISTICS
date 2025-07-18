@@ -1,12 +1,12 @@
-import React from "react";
-import { Container, Row, Col, Button, Card } from "react-bootstrap";
+import React, { useRef, useState } from "react";
+import { Container, Row, Col, Button, Card, Modal, Form } from "react-bootstrap";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
 
 import evVan from "../assets/evVan.jpg";
 import cargoBike from "../assets/cargoTruck.jpg";
 import electricTruck from "../assets/electricTruck.jpg";
-import fleetBg from "../assets/GTAMAP.jpg";
+import fleetBg from "../assets/map.png";
 
 import "../styles/Fleet.css";
 
@@ -29,6 +29,30 @@ const fleetData = [
 ];
 
 const OurFleet = () => {
+  const [showDemo, setShowDemo] = useState(false);
+
+  // Added fleetRef
+  const fleetRef = useRef(null);
+
+  const scrollToFleet = () => {
+    console.log("Scrolling to fleet section...");
+    if (fleetRef.current) {
+      fleetRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleOpenDemo = () => setShowDemo(true);
+  const handleCloseDemo = () => setShowDemo(false);
+
+  const handleSubmitDemo = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    alert(`Demo requested by ${name} (${email})`);
+    handleCloseDemo();
+  };
+
   return (
     <section className="our-fleet-page">
       {/* Hero */}
@@ -60,48 +84,50 @@ const OurFleet = () => {
           Efficient, green, and built to serve the GTA.
         </motion.p>
         <div>
-          <Button variant="success" className="me-3 glow-button">
+          <Button variant="outline-light" className="glow-button me-3" onClick={scrollToFleet}>
             Explore Fleet Types
           </Button>
-          <Button variant="outline-light" className="glow-button">
+          <Button variant="outline-light" className="glow-button" onClick={handleOpenDemo}>
             Request a Demo
           </Button>
         </div>
       </div>
 
       {/* Fleet Cards */}
-      <Container className="py-5">
-        <Row className="g-4 justify-content-center">
-          {fleetData.map(({ img, name, specs }, i) => (
-            <Col key={i} md={4}>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="fleet-card-wrapper"
-              >
-                <Card className="shadow-sm h-100 text-center">
-                  <Card.Img variant="top" src={img} alt={name} />
-                  <Card.Body>
-                    <Card.Title className="text-success">{name}</Card.Title>
-                    <ul className="list-unstyled fs-6">
-                      {specs.map((spec, idx) => (
-                        <li key={idx}>{spec}</li>
-                      ))}
-                    </ul>
-                  </Card.Body>
-                </Card>
-              </motion.div>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      <div ref={fleetRef}>
+        <Container className="py-5" id="fleetTypes">
+          <Row className="g-4 justify-content-center mt-5">
+            {fleetData.map(({ img, name, specs }, i) => (
+              <Col key={i} xs={12} sm={6} md={4}>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  className="fleet-card-wrapper"
+                >
+                  <Card className="shadow-sm h-100 text-center">
+                    <Card.Img variant="top" src={img} alt={name} />
+                    <Card.Body>
+                      <Card.Title className="text-success">{name}</Card.Title>
+                      <ul className="list-unstyled fs-6">
+                        {specs.map((spec, idx) => (
+                          <li key={idx}>{spec}</li>
+                        ))}
+                      </ul>
+                    </Card.Body>
+                  </Card>
+                </motion.div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </div>
 
       {/* Sustainability & Impact */}
-      <Container fluid className="sustainability-section py-5 bg-light text-center">
-        <h2 className="mb-4">Sustainability & Impact</h2>
+      <Container fluid className="sustainability-section py-5 text-center">
+        <h2 className="mb-4 fw-bold">Sustainability & Impact</h2>
         <Row>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +139,7 @@ const OurFleet = () => {
               <p>Through our electric fleet operations</p>
             </motion.div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -125,7 +151,7 @@ const OurFleet = () => {
               <p>Zero emissions across GTA routes</p>
             </motion.div>
           </Col>
-          <Col md={4}>
+          <Col xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -142,11 +168,59 @@ const OurFleet = () => {
 
       {/* CTA */}
       <Container className="py-5 text-center">
-        <h4 className="mb-4 fw-bold">Want to see our fleet in action?</h4>
-        <Button variant="success" size="lg">
+        <h4 className="mb-4 fw-bold fleet-action-heading">Want to see our fleet in action?</h4>
+        <Button className="demo-button" variant="success" size="lg" onClick={handleOpenDemo}>
           Schedule a Demo
         </Button>
       </Container>
+
+      {/* Modal */}
+      <Modal show={showDemo} onHide={handleCloseDemo} centered>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title >Request a Demo</Modal.Title>
+          </Modal.Header>
+
+          <Form onSubmit={handleSubmitDemo}>
+            <Modal.Body>
+
+              <Form.Group className="mb-3" controlId="demoName">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" name="name" placeholder="Your full name" required />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="demoEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" name="email" placeholder="name@example.com" required />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="demoCompany">
+                <Form.Label>Company</Form.Label>
+                <Form.Control type="text" name="company" placeholder="Your company (optional)" />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="demoMessage">
+                <Form.Label>Message</Form.Label>
+                <Form.Control as="textarea" name="message" rows={3} placeholder="Any specific request..." />
+              </Form.Group>
+            </Modal.Body>
+
+            <Modal.Footer>
+              <Button variant="secondary" onClick={handleCloseDemo}>
+                Cancel
+              </Button>
+
+              <Button variant="success" type="submit">
+                Submit Request
+              </Button>
+            </Modal.Footer>
+          </Form>
+        </motion.div>
+      </Modal>
     </section>
   );
 };
