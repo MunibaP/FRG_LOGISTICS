@@ -63,26 +63,35 @@ const Quote = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <h2 className="text-center mb-4 text-success">Request a Quote</h2>
+                <h2 className="text-center mb-4 text-success fw-bold">Request a Quote</h2>
                 <Form onSubmit={handleSubmit} className="quote-form p-4 shadow-lg rounded bg-white">
+                  {/*Name */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label className="fw-bold">Name</Form.Label>
                     <Form.Control type="text" name="name" required value={formData.name} onChange={handleChange} />
                   </Form.Group>
+
+                  {/*Email */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="fw-bold">Email</Form.Label>
                     <Form.Control type="email" name="email" required value={formData.email} onChange={handleChange} />
                   </Form.Group>
+
+                  {/*Company */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Company (Optional)</Form.Label>
+                    <Form.Label className="fw-bold">Company (Optional)</Form.Label>
                     <Form.Control type="text" name="company" value={formData.company} onChange={handleChange} />
                   </Form.Group>
+
+                  {/*Phone */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Phone</Form.Label>
+                    <Form.Label className="fw-bold">Phone</Form.Label>
                     <Form.Control type="tel" name="phone" required value={formData.phone} onChange={handleChange} />
                   </Form.Group>
+
+                  {/*Services */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Service Type</Form.Label>
+                    <Form.Label className="fw-bold">Service Type</Form.Label>
                     <Form.Select name="serviceType" required value={formData.serviceType} onChange={handleChange}>
                       <option value="">Select a service</option>
                       <option>Same-Day Delivery</option>
@@ -93,13 +102,24 @@ const Quote = () => {
                       <option>Warehousing & Sorting</option>
                     </Form.Select>
                   </Form.Group>
+
+                  {/*Delivery Details */}
                   <Form.Group className="mb-3">
-                    <Form.Label>Delivery Details</Form.Label>
+                    <Form.Label className="fw-bold">Delivery Details</Form.Label>
                     <Form.Control as="textarea" rows={4} name="details" value={formData.details} onChange={handleChange} />
                   </Form.Group>
-                  <Button type="submit" variant="success" className="w-100">
-                    Submit Quote Request
-                  </Button>
+                  
+                  <Row className="justify-content-center mt-4">
+                    <Col xs="auto">
+                      <Button 
+                        type="submit" 
+                        className="quote-submit-btn d-inline-flex align-items-center justify-content-center"
+                        style={{ display: "block" }}
+                      >
+                        Submit Quote Request
+                      </Button>
+                    </Col>
+                  </Row>
                 </Form>
               </motion.div>
             </Col>
