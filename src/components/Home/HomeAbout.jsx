@@ -37,7 +37,7 @@ const HomeAbout = () => {
           </Col>
 
           {/* Text */}
-          <Col md={6} className="text-center"  style={{ marginTop: "-100px" }}>
+          <Col md={6} className="text-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -65,15 +65,15 @@ const HomeAbout = () => {
         </Row>
 
         {/* Feature Icon Row */}
-        <Row className="justify-content-center text-center mt-3">
+        <Row className="text-center mt-3 gy-4">
           {features.map((feature, index) => (
-            <Col key={index} xs={6} md={3} className="mb-4">
+            <Col key={index} xs={6} sm={6} md={3} className="d-flex flex-column align-items-center mb-4">
               <motion.div
-                whileHover={{ scale: 1.15 }}
-                transition={{ type: "spring", stiffness: 250 }}
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300 }}
               >
-                <FontAwesomeIcon icon={feature.icon} className="feature-icon mb-2" />
-                <h6 className="fw-semibold">{feature.label}</h6>
+                <FontAwesomeIcon icon={feature.icon} className="feature-icon mb-2 fs-2 text-success" />
+                <h6 className="fw-semibold mt-2">{feature.label}</h6>
               </motion.div>
             </Col>
           ))}
