@@ -16,6 +16,9 @@ import Contact from '../pages/Contact';
 import GetQuote from '../pages/GetQuote';
 import Track from '../pages/Track';
 
+import PrivacyPolicy from "../pages/PrivacyPolicy";
+import TermsOfService from "../pages/TermsOfService";
+
 
 const AppRoutes = ()  => {
   return (
@@ -34,6 +37,9 @@ const AppRoutes = ()  => {
       <Route path="/contact" element={<Contact />} />
       <Route path="/quote" element={<GetQuote />} />
       <Route path="/track" element={<Track />} />
+
+      <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+      <Route path="/termsOfService" element={<TermsOfService />} />
     </Routes>
   );
 };

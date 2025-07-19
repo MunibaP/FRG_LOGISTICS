@@ -144,10 +144,10 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} FRG Logistics. All rights reserved.
           </Col>
             <Col md={6} className="footer-policy-links d-flex justify-content-end">
-                <a href="/privacy-policy" className="footer-policy-link">
+                <a href="/privacyPolicy" className="footer-policy-link">
                     Privacy Policy
                 </a>
-                <a href="/terms-of-service" className="footer-policy-link">
+                <a href="/termsOfService" className="footer-policy-link">
                     Terms of Service
                 </a>
             </Col>
