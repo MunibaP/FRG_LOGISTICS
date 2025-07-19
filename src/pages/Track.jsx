@@ -8,6 +8,8 @@ import {
   faTruck,
   faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import Lottie from "lottie-react";
+import trackingMap from "../assets/delivery.json";
 import "../styles/Track.css";
 
 const steps = [
@@ -29,7 +31,7 @@ export default function TrackSplit() {
 
   return (
     <Container fluid className="track-split-page p-0">
-      <Row className="gx-0">
+      <Row className="gx-0 flex-column flex-md-row">
         {/* Left Side: Map / Illustration */}
         <Col md={6} className="map-side d-flex justify-content-center align-items-center">
           <motion.div
@@ -38,14 +40,20 @@ export default function TrackSplit() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            {/* You can replace this div with an actual map or SVG */}
-            <h2 className="text-white text-center">[Animated Map Here]</h2>
+            <Lottie animationData={trackingMap} loop={true} />
           </motion.div>
         </Col>
 
         {/* Right Side: Form + Status */}
         <Col md={6} className="form-side d-flex flex-column justify-content-center p-5">
-          <h1 className="mb-4">Track Your Delivery</h1>
+          <motion.h1
+            className="text-center mb-4"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            Track Your Delivery
+          </motion.h1>
           <Form onSubmit={handleSubmit} className="mb-5">
             <Form.Group controlId="trackingId" className="mb-3">
               <Form.Label>Tracking Number</Form.Label>
@@ -77,7 +85,7 @@ export default function TrackSplit() {
                   className={`status-step ${isActive ? "active" : ""} ${isCompleted ? "completed" : ""}`}
                 >
                   <FontAwesomeIcon icon={icon} className="step-icon" />
-                  <span>{label}</span>
+                  <span className="step-label">{label}</span>
                   {isActive && <motion.div layoutId="highlight" className="highlight-bar" />}
                 </motion.div>
               );
