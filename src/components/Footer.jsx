@@ -83,7 +83,7 @@ const Footer = () => {
             </p>
             <div className="footer-socials">
               <a
-                href="https://www.facebook.com/frglogistics"
+                href="https://www.facebook.com/login.php/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Facebook"
@@ -92,7 +92,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faFacebookF} />
               </a>
               <a
-                href="https://www.linkedin.com/company/frglogistics"
+                href="https://www.linkedin.com/login"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="LinkedIn"
@@ -101,7 +101,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faLinkedinIn} />
               </a>
               <a
-                href="https://twitter.com/frglogistics"
+                href="https://x.com/i/flow/login"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Twitter"
@@ -110,7 +110,7 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faTwitter} />
               </a>
               <a
-                href="https://instagram.com/frglogistics"
+                href="https://www.instagram.com/accounts/emailsignup/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram"
