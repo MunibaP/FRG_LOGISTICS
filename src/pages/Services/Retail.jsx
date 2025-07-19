@@ -63,7 +63,7 @@ const Retail = () => {
                 Delivering excellence and reliability for retail and business-to-business logistics with a commitment to sustainability and professionalism.
               </p>
               <div className="quote-button-wrapper">
-                    <Button href="/get-quote" variant="success" size="lg" className="rounded-pill px-5 mb-4">
+                    <Button href="/quote" variant="success" size="lg" className="rounded-pill px-5 mb-4">
                         Request a Free Quote
                     </Button>
                 </div>

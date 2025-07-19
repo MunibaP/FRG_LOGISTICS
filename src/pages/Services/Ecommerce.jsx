@@ -89,7 +89,7 @@ const Ecommerce = () => {
             transition={{ type: "spring", stiffness: 300 }}
           >
             <Button 
-              href="/get-quote" 
+              href="/quote" 
               variant="success" 
               size="lg" 
               className="rounded-pill px-5"

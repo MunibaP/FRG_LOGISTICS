@@ -33,7 +33,7 @@ const Medical = () => {
                 ensuring secure and prompt arrival across the GTA with our eco-friendly EV fleet.
               </p>
               <Button
-                href="/get-quote"
+                href="/quote"
                 variant="success"
                 size="lg"
                 className="rounded-pill px-5"

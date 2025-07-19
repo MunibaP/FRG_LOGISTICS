@@ -6,13 +6,12 @@ import { motion } from "framer-motion";
 import "../styles/Contact.css";
 
 const containerVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
-};
-
-const buttonHover = {
-  scale: 1.05,
-  boxShadow: "0px 0px 12px rgb(72 199 116 / 0.8)",
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
 const Contact = () => {
@@ -24,24 +23,23 @@ const Contact = () => {
       animate="visible"
     >
       <Container>
-        <Row className="mb-5">
+        <Row className="mb-4">
           <Col>
             <motion.h2
-              className="text-center fw-bold text-success mb-3"
+              className="text-center fw-bold text-success mb-2"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
+              transition={{ delay: 0.2, duration: 0.4 }}
             >
-              Partner with FRG Logistics Today!
+              Partner with FRG Logistics Today
             </motion.h2>
             <motion.p
-              className="text-center text-muted fs-5"
+              className="custom-contact-paragraph text-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: 0.6, duration: 0.7 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
             >
-              We would be happy to meet and discuss how FRG Logistics can seamlessly support your delivery operations.
-              Reach out for a demo, rate card, or to schedule a pilot delivery.
+              Reach out to discuss your delivery needs, request a quote, or schedule a pilot.
             </motion.p>
           </Col>
         </Row>
@@ -50,27 +48,28 @@ const Contact = () => {
           {/* Contact Info */}
           <Col md={5} className="mb-4">
             <motion.div
-              whileHover={{ scale: 1.02 }}
-              className="contact-info p-4 border rounded shadow-sm"
+              whileHover={{ scale: 1.01 }}
+              className="contact-info p-4 border rounded-3"
             >
-              <h4 className="mb-4 text-success fw-semibold">Contact Information</h4>
-
-              <p className="fs-5 mb-3 contact-info-item">
-                <FontAwesomeIcon icon={faUser} className="me-3 text-success" />
-                <strong>Name:</strong> [Your Full Name]
-              </p>
-              <p className="fs-5 mb-3 contact-info-item">
-                <FontAwesomeIcon icon={faPhone} className="me-3 text-success" />
-                <strong>Phone:</strong> [Your Number]
-              </p>
-              <p className="fs-5 mb-3 contact-info-item">
-                <FontAwesomeIcon icon={faEnvelope} className="me-3 text-success" />
-                <strong>Email:</strong> [Your Email]
-              </p>
-              <p className="fs-5 mb-3 contact-info-item">
-                <FontAwesomeIcon icon={faGlobe} className="me-3 text-success" />
-                <strong>Website:</strong> [Optional]
-              </p>
+              <h5 className="mb-4 text-success fw-semibold">Contact Information</h5>
+              <ul className="list-unstyled">
+                <li className="mb-3 d-flex align-items-center text-muted">
+                  <FontAwesomeIcon icon={faUser} className="me-2 icon-muted" />
+                  <span><strong>Name:</strong> FRG Logistics</span>
+                </li>
+                <li className="mb-3 d-flex align-items-center text-muted">
+                  <FontAwesomeIcon icon={faPhone} className="me-2 icon-muted" />
+                  <span><strong>Phone:</strong> +1 (123) 456-7890</span>
+                </li>
+                <li className="mb-3 d-flex align-items-center text-muted">
+                  <FontAwesomeIcon icon={faEnvelope} className="me-2 icon-muted" />
+                  <span><strong>Email:</strong> contact@frglogistics.ca</span>
+                </li>
+                <li className="mb-3 d-flex align-items-center text-muted">
+                  <FontAwesomeIcon icon={faGlobe} className="me-2 icon-muted" />
+                  <span><strong>Website:</strong> www.frglogistics.ca</span>
+                </li>
+              </ul>
             </motion.div>
           </Col>
 
@@ -79,36 +78,31 @@ const Contact = () => {
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="contact-form p-4 border rounded shadow-sm"
+              transition={{ duration: 0.6 }}
+              className="contact-form p-4 border rounded-3"
             >
               <Form>
                 <Form.Group className="mb-3" controlId="formName">
                   <Form.Label>Your Name</Form.Label>
-                  <Form.Control type="text" placeholder="Enter your full name" required />
+                  <Form.Control type="text" placeholder="Full name" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control type="email" placeholder="Enter your email" required />
+                  <Form.Label>Email</Form.Label>
+                  <Form.Control type="email" placeholder="Email address" required />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formPhone">
-                  <Form.Label>Phone Number</Form.Label>
-                  <Form.Control type="tel" placeholder="Enter your phone number" />
+                  <Form.Label>Phone</Form.Label>
+                  <Form.Control type="tel" placeholder="Phone number (optional)" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formMessage">
                   <Form.Label>Message</Form.Label>
-                  <Form.Control
-                    as="textarea"
-                    rows={4}
-                    placeholder="Write your message here"
-                    required
-                  />
+                  <Form.Control as="textarea" rows={4} placeholder="Write your message..." required />
                 </Form.Group>
 
-                <motion.div whileHover={buttonHover} whileTap={{ scale: 0.95 }}>
+                <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>
                   <Button variant="success" type="submit" className="w-100 fw-semibold">
                     Send Message
                   </Button>

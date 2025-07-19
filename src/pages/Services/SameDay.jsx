@@ -198,7 +198,7 @@ const SameDay = () => {
 
         {/* Call to Action */}
         <div className="text-center mt-5">
-          <Button href="/get-quote" variant="success" size="lg" className="rounded-pill">
+          <Button href="/quote" variant="success" size="lg" className="rounded-pill">
             Request a Same-Day Delivery Quote
           </Button>
         </div>

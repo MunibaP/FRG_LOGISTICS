@@ -171,7 +171,7 @@ const Header = () => {
               Our Fleet
             </Nav.Link>
 
-            <Nav.Link 
+            {/* <Nav.Link 
               as={NavLink} 
               to="/MedicalDelivery"
               className={({ isActive }) =>
@@ -179,7 +179,7 @@ const Header = () => {
               }
             >
               Medical Delivery
-            </Nav.Link>
+            </Nav.Link> */}
 
             <Nav.Link 
               as={NavLink} 
