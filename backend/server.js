@@ -13,8 +13,10 @@ mongoose.connect(process.env.MONGO_URI)
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Import routes
-const formRoutes = require('./routes/forms');
-app.use('/api', formRoutes);
+const routes = require('./routes'); // import routes
+app.use('/api', routes);
+// const formRoutes = require('./routes/forms');
+// app.use('/api', formRoutes);
 
 // Test route
 app.get('/', (req, res) => {
@@ -23,4 +25,4 @@ app.get('/', (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -6,11 +6,11 @@ const Contact = require('../models/Contact');
 const { body, validationResult } = require('express-validator');
 
 // POST /api/contact
-router.post('/contact', 
+router.post('/', 
   [
     body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Valid email is required'),
-    body('phone').optional().isMobilePhone().withMessage('Invalid phone number'),
+    body('phone').optional().isMobilePhone('any').withMessage('Invalid phone number'),
     body('message').notEmpty().withMessage('Message is required'),
   ],
 
@@ -25,9 +25,11 @@ router.post('/contact',
     try {
       const newContact = new Contact(req.body);
       await newContact.save();
-      res.status(201).json({ message: 'Contact inquiry saved' });
+      res.status(201).json({ message: 'Form submitted successfully!' });
     } catch (err) {
       res.status(500).json({ error: 'Failed to save contact' });
     }
   }
 );
+
+module.exports = router;

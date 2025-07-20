@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPhone, faEnvelope, faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
@@ -15,6 +15,48 @@ const containerVariants = {
 };
 
 const Contact = () => {
+  // Local state for form inputs and feedback
+   const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const [submitted, setSubmitted] = useState(false); // Show success message
+  const [error, setError] = useState(null);          // Optional: handle error feedback
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  //  Handle form submit
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSubmitted(false);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok) {
+        setSubmitted(true);           // Show confirmation message
+        setFormData({ name: "", email: "", phone: "", message: "" }); // Reset form
+      } else {
+        setError(result.errors?.[0]?.msg || "Something went wrong");
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Error submitting the form");
+    }
+  };
+
   return (
     <motion.div
       className="contact-page py-5"
@@ -81,25 +123,66 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="contact-form p-4 border rounded-3"
             >
-              <Form>
+              {/* Success Message */}
+              {submitted && (
+                <Alert variant="success" className="fw-semibold text-center">
+                  Message sent successfully! We’ll get back to you shortly.
+                </Alert>
+              )}
+
+              {/* Error Message */}
+              {error && (
+                <Alert variant="danger" className="fw-semibold text-center">
+                  {error}
+                </Alert>
+              )}
+
+              <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formName">
                   <Form.Label>Your Name</Form.Label>
-                  <Form.Control type="text" placeholder="Full name" required />
+                  <Form.Control 
+                    type="text" 
+                    name="name" 
+                    placeholder="Full name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    required 
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formEmail">
                   <Form.Label>Email</Form.Label>
-                  <Form.Control type="email" placeholder="Email address" required />
+                  <Form.Control 
+                    type="email" 
+                    name="email"
+                    placeholder="Email address" 
+                    value={formData.email}
+                    onChange={handleChange}
+                    required 
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formPhone">
                   <Form.Label>Phone</Form.Label>
-                  <Form.Control type="tel" placeholder="Phone number (optional)" />
+                  <Form.Control 
+                    type="tel" 
+                    name="phone"
+                    placeholder="Phone number (optional)" 
+                    value={formData.phone}
+                    onChange={handleChange}
+                  />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formMessage">
                   <Form.Label>Message</Form.Label>
-                  <Form.Control as="textarea" rows={4} placeholder="Write your message..." required />
+                  <Form.Control 
+                    as="textarea"
+                    name="message" 
+                    rows={4} placeholder="Write your message..." 
+                    value={formData.message}
+                    onChange={handleChange}
+                    required 
+                  />
                 </Form.Group>
 
                 <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.96 }}>

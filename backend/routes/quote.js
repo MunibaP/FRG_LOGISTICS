@@ -30,3 +30,5 @@ router.post('/quote',
     }
   }
 );
+
+module.exports = router;
