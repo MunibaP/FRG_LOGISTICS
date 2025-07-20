@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const Tracking =  require('../models/Tracking');
-const trackingData = require('../seeds/tracking');
 const { param, validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 
 // Validate trackingNumber param: must start with "FRG" + 5 digits
 router.get('/:trackingNumber',
@@ -27,8 +27,9 @@ router.get('/:trackingNumber',
                 return res.status(404).json({ error: 'Tracking number not found' });
             }
 
-            res.json(!trackingInfo);
+            res.json(trackingInfo);
         } catch (err) {
+            console.error('Tracking route error:', err);
             res.status(500).json({error: 'Server error'});
         }
     }
