@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Row, Col, Form, Button, Card } from "react-bootstrap";
+import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -13,20 +13,42 @@ import trackingMap from "../assets/delivery.json";
 import "../styles/Track.css";
 
 const steps = [
-  { id: 1, label: "Package Received", icon: faBox },
-  { id: 2, label: "In Transit", icon: faTruck },
-  { id: 3, label: "Out for Delivery", icon: faMapMarkedAlt },
-  { id: 4, label: "Delivered", icon: faCheckCircle },
+  { id: 1, label: "Package Received", icon: faBox, status: "Package Received" },
+  { id: 2, label: "In Transit", icon: faTruck, status: "In Transit" },
+  { id: 3, label: "Out for Delivery", icon: faMapMarkedAlt, status: "Out for delivery"  },
+  { id: 4, label: "Delivered", icon: faCheckCircle, status: "Delivered" },
 ];
 
 export default function TrackSplit() {
   const [trackingId, setTrackingId] = useState("");
   const [activeStep, setActiveStep] = useState(0);
+  const [error, setError] = useState(""); // Added state for error messages
+  const [loading, setLoading] = useState(false); // Added state for loading indicator
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {              // Changed to async function to call backend API
     e.preventDefault();
-    // For demo, random active step
-    setActiveStep(Math.floor(Math.random() * steps.length) + 1);
+    setError("");                                         // Clear previous errors
+    setLoading(true);                                     // Start Loading
+    
+    try {
+      const res = await fetch(`/api/track/${trackingId.trim()}`);  // API call to backend
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Tracking failed");          // Throw error if not OK
+      }
+      const data = await res.json();
+
+      // Find step index by matching status (case-insensitive)
+      const step = steps.findIndex(
+        (s) => s.status.toLowerCase() === data.status.toLowerCase()
+      );
+
+      setActiveStep(step + 1);                             // Set active step based on backend status
+    } catch (err) {
+      setActiveStep(0);                                   // Reset step on error
+      setError(err.message);                              // Show error message
+    }
+    setLoading(false);                                    // Stop loading
   };
 
   return (
@@ -63,13 +85,16 @@ export default function TrackSplit() {
                 value={trackingId}
                 onChange={(e) => setTrackingId(e.target.value)}
                 required
+                disabled={loading}   /* Disable input while loading */ 
               />
             </Form.Group>
-            <Button type="submit" variant="success" className="w-100">
-              Track Package
+            <Button type="submit" variant="success" className="w-100" disabled={loading}>
+               {loading ? "Tracking..." : "Track Package"}   {/* Show loading text */}
+              {/* Track Package */}
             </Button>
           </Form>
-
+          {error && <Alert variant="danger">{error}</Alert>}   {/* Show error alert */}
+          
           {/* Status Steps Vertical */}
           <div className="status-steps">
             {steps.map(({ id, label, icon }) => {
