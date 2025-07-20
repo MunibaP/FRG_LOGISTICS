@@ -1,3 +1,4 @@
+// seeds for contact page
 const Contact = require('../models/Contact');
 
 async function seedContact() {
