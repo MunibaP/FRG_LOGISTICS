@@ -17,18 +17,48 @@ const Quote = () => {
     company: "",
     phone: "",
     serviceType: "",
-    details: "",
+    DeliveryDetails: "",
   });
+
+  const [successMessage, setSuccessMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle submit logic (e.g. API, EmailJS, etc.)
-    alert("Quote submitted successfully!");
+
+    try {
+      const response = await fetch('/api/quote', {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage("✅ Quote submitted successfully!");
+        // Optional: reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          serviceType: "",
+          DeliveryDetails: "",
+        });
+      } else {
+        setSuccessMessage(`❌ Error: ${data.error || data.errors?.[0]?.msg || "Something went wrong"}`);
+      }
+    } catch (error) {
+      console.error("Submission error:", error);
+      setSuccessMessage("❌ Submission failed. Please try again later.");
+    }
   };
 
   return (
@@ -64,6 +94,12 @@ const Quote = () => {
                 transition={{ duration: 0.5 }}
               >
                 <h2 className="text-center mb-4 text-success fw-bold">Request a Quote</h2>
+                {successMessage && (
+                  <div className="alert alert-info text-center mb-4" role="alert">
+                    {successMessage}
+                  </div>
+                )}
+
                 <Form onSubmit={handleSubmit} className="quote-form p-4 shadow-lg rounded bg-white">
                   {/*Name */}
                   <Form.Group className="mb-3">
@@ -106,7 +142,7 @@ const Quote = () => {
                   {/*Delivery Details */}
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-bold">Delivery Details</Form.Label>
-                    <Form.Control as="textarea" rows={4} name="details" value={formData.details} onChange={handleChange} />
+                    <Form.Control as="textarea" rows={4} name="DeliveryDetails" value={formData.DeliveryDetails} onChange={handleChange} />
                   </Form.Group>
                   
                   <Row className="justify-content-center mt-4">

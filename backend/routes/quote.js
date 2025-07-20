@@ -6,7 +6,7 @@ const Quote = require('../models/Quote');
 const { body, validationResult } = require('express-validator');
 
 // POST /api/quote
-router.post('/quote',
+router.post('/',
   [
     body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Valid email is required'),
