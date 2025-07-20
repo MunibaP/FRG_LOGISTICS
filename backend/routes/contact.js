@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Contact = require('../models/Contact');
+// const contactForm = require('../seeds/contact');
 const { body, validationResult } = require('express-validator');
 
 // POST /api/contact

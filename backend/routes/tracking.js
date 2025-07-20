@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Tracking =  require('../models/Tracking');
+const trackingData = require('../seeds/tracking');
 const { param, validationResult } = require('express-validator');
 
 // Validate trackingNumber param: must start with "FRG" + 5 digits
