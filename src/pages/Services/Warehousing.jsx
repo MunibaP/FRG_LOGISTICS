@@ -103,7 +103,7 @@ const Warehousing = () => {
           className="text-center mt-5"
         >
           <h4 className="fw-bold mb-3 cta-heading">Ready to optimize your logistics workflow?</h4>
-          <Button variant="success" size="lg" href="/get-a-quote">
+          <Button variant="success" size="lg" href="/quote">
             Get a Free Quote
           </Button>
         </motion.div>
