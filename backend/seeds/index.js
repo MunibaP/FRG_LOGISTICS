@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const ContactForm = require('./contact');
 const GetAQuote = require('./quote');
+const Tracking = require('./tracking');
 
 async function runSeeds() {
   try {
@@ -11,6 +12,7 @@ async function runSeeds() {
 
     await ContactForm();
     await GetAQuote();
+    await Tracking();
 
     await mongoose.connection.close();
     console.log("✅ Seeding complete and connection closed");
