@@ -2,10 +2,14 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+// Serve static files from React frontend (after build)
+app.use(express.static(path.join(__dirname, '../dist')));
 
 // Import routes
 const routes = require('./routes'); // import routes
@@ -13,10 +17,15 @@ app.use('/api', routes);
 // const formRoutes = require('./routes/forms');
 // app.use('/api', formRoutes);
 
-// Test route
-app.get('/', (req, res) => {
-  res.send('FRG Logistics Backend Running');
+// For any other route, serve React's index.html (for React Router)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
+
+// Test route
+// app.get('/', (req, res) => {
+//   res.send('FRG Logistics Backend Running');
+// });
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
