@@ -1,5 +1,5 @@
 .track-split-page {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .map-side {
@@ -73,6 +73,7 @@
   transition: color 0.3s, transform 0.3s;
   margin-right: 0.5rem;
   align-items: center;
+  margin: 0 0 0.7rem 0 !important;
 }
 
 .status-step .step-label {
