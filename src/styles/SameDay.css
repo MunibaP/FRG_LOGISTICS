@@ -51,6 +51,7 @@ body {
     max-width: 100%;
     padding-left: 0;
     margin: 0 auto;
+    text-align: center;
   }
 }
 
@@ -132,15 +133,16 @@ body {
 
 .why-bullets li {
   position: relative;
-  padding-left: 25px; /* space for the custom bullet */
+  padding-left: 0; /* space for the custom bullet */
   margin-bottom: 0.75rem;
   line-height: 1.4;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   list-style: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   white-space: nowrap;
+  text-align: center;
 }
 
 /* Custom bullet: the green checkmark */

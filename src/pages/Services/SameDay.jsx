@@ -83,7 +83,7 @@ const SameDay = () => {
 
           <Col md={6}>
             <div className="why-choose-wrapper text-center">
-              <h3 className="why-heading fw-bold">Why Choose Our Same-Day Delivery?</h3>
+              <h3 className="why-heading fw-bold mt-4">Why Choose Our Same-Day Delivery?</h3>
               <ul className="why-bullets list-unstyled mx-auto text-start" style={{ maxWidth: "400px" }}>
                 {bullets.map((text, index) => (
                   <motion.li
