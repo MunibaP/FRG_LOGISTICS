@@ -90,3 +90,11 @@
   box-shadow: 0 3px 8px rgba(40, 167, 69, 0.2);
 }
 
+@media (max-width: 576px) {
+  .quote-hero {
+    height: 40vh; /*taller on small screens*/
+    background-position: center top; /* adjust focal point */
+  }
+}
+
+
