@@ -19,3 +19,14 @@
   z-index: 1;          
   pointer-events: auto; 
 }
+
+@media (max-width: 576px) {
+  .hero-section {
+    height: 70vh; /* changes the height of the image*/
+    background-position: top center; /* show top of image */
+  }
+
+  .hero-section .overlay {
+    padding: 2rem 1rem;
+  }
+}
