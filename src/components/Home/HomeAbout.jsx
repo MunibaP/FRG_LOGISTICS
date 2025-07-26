@@ -65,9 +65,9 @@ const HomeAbout = () => {
         </Row>
 
         {/* Feature Icon Row */}
-        <Row className="text-center mt-3 gy-4">
+        <Row className="gy-4 justify-content-center align-items-center text-center">
           {features.map((feature, index) => (
-            <Col key={index} xs={6} sm={6} md={3} className="d-flex flex-column align-items-center mb-4">
+            <Col key={index} xs={6} sm={6} md={3} className="text-center d-flex flex-column align-items-center justify-content-center">
               <motion.div
                 whileHover={{ scale: 1.1 }}
                 transition={{ type: "spring", stiffness: 300 }}
