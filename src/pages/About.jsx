@@ -51,7 +51,7 @@ const About = () => {
                             transition={{ duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <h2 className="fw-bold heading-green">Who We Are</h2>
+                            <h2 className="fw-bold heading-green mt-4">Who We Are</h2>
 
                             <p className="mb-3">
                                 Our experienced drivers, state-of-the-art electric vehicle fleet, and advanced
