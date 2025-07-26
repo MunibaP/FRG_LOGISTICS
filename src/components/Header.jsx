@@ -24,21 +24,21 @@ const Header = () => {
         <Navbar.Collapse id="main-navbar">
           <Nav className="ms-auto gap-2">
 
-            <Nav.Link as={NavLink} to="/" 
+            <NavLink as={NavLink} to="/" 
               end className={({isActive}) => 
                 isActive ? "nav-link active-link" : "nav-link" 
               }
             >
               Home
-            </Nav.Link>
+            </NavLink>
 
-            <Nav.Link as={NavLink} to="/about"
+            <NavLink as={NavLink} to="/about"
               className={({isActive}) =>
                 isActive ? "nav-link active-link" : "nav-link"
               }
             >
               About Us
-            </Nav.Link>
+            </NavLink>
               {/*text-success makes the Services text Green*/}
              <NavDropdown
               title={
@@ -46,8 +46,8 @@ const Header = () => {
                   to="/services"
                   className={({ isActive }) =>
                     isActive
-                      ? "dropdown-title-link text-success active-link"
-                      : "dropdown-title-link text-success"
+                      ? "dropdown-title-link active-link"
+                      : "dropdown-title-link"
                   }
                 >
                   Services
@@ -119,15 +119,15 @@ const Header = () => {
 
             </NavDropdown>
 
-            <Nav.Link 
+            <NavLink 
               as={NavLink} 
               to="/fleet"
               className={({ isActive }) =>
-                isActive ? "dropdown-item active-link" : "dropdown-item"
+                isActive ? "nav-link active-link" : "nav-link"
               }
             >
               Our Fleet
-            </Nav.Link>
+            </NavLink>
 
             {/* <Nav.Link 
               as={NavLink} 
@@ -139,35 +139,35 @@ const Header = () => {
               Medical Delivery
             </Nav.Link> */}
 
-            <Nav.Link 
+            <NavLink 
               as={NavLink} 
               to="/quote"
               className={({ isActive }) =>
-                isActive ? "dropdown-item active-link" : "dropdown-item"
+                isActive ? "nav-link active-link" : "nav-link"
               }
             >
               Get a Quote
-            </Nav.Link>
+            </NavLink>
 
-            <Nav.Link 
+            <NavLink 
               as={NavLink} 
               to="/track"
               className={({ isActive }) =>
-                isActive ? "dropdown-item active-link" : "dropdown-item"
+                isActive ? "nav-link active-link" : "nav-link"
               }
             >
               Track
-            </Nav.Link>
+            </NavLink>
 
-            <Nav.Link 
+            <NavLink 
               as={NavLink} 
               to="/contact"
               className={({ isActive }) =>
-                isActive ? "dropdown-item active-link" : "dropdown-item"
+                isActive ? "nav-link active-link" : "nav-link"
               }
             >
               Contact Us
-            </Nav.Link>
+            </NavLink>
 
           </Nav>
         </Navbar.Collapse>
