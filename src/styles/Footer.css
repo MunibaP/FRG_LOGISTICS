@@ -142,3 +142,25 @@
     text-align: center; /* keep center on desktop too */
   }
 }
+
+@media (max-width: 767px) {
+  .footer-bottom {
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 0.5rem;
+    text-align: center !important;
+  }
+
+  .footer-copy,
+  .footer-policy-links {
+    flex: none !important;
+    width: 100%;
+    margin: 0 !important;
+  }
+
+  .footer-policy-links {
+    justify-content: center !important;
+    gap: 1rem;
+  }
+}
