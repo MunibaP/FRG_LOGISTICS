@@ -49,7 +49,7 @@ const Warehousing = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <h3 className="text-success fw-bold">Streamlined Warehousing Services</h3>
+              <h3 className="text-success fw-bold mt-4">Streamlined Warehousing Services</h3>
               <p className="mt-3 fs-5 text-center">
                 FRG Logistics offers warehousing and sorting support to help you manage inventory with ease. Our
                 eco-conscious facilities are designed to handle:
@@ -82,7 +82,7 @@ const Warehousing = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
             >
-              <h3 className="text-success fw-bold">Integrated Logistics Support</h3>
+              <h3 className="text-success fw-bold mt-4">Integrated Logistics Support</h3>
               <p className="mt-3 fs-5 text-center">
                 We simplify your delivery workflow by integrating warehousing with our eco-friendly fleet:
               </p>
