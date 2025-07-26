@@ -24,18 +24,23 @@
 .compliance-list li {
   display: flex;           /* Align icon and text horizontally */
   align-items: center;     /* Vertically center icon with text */
-  gap: 0.6rem;             /* Space between icon and text */
-  margin-bottom: 0.7rem;
-  font-size: 1.05rem;
-  line-height: 1.4;
+  gap: 0.2rem !important;   /* Space between icon and text */
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+  /* justify-content: center; */
+  font-weight: 500;
 }
 
 .compliance-list li .icon {
   margin-right: 10px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   color: #198754;
   margin-top: 0;           /* Remove vertical offset */
   min-width: 24px;         /* Fix icon width for consistent alignment */
+  display: flex;
+  align-items: center;
+  transform: translateY(1px); 
 }
 
 .commitment-list li {
